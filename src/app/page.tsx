@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Flare />
+      {/* <Flare /> */}
 
       <Overview />
       <Intro />
