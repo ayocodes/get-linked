@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 
-const pages = () => {
+const Pages = () => {
   const [firstName, setFirstName] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [email, setEmail] = useState("");
@@ -158,4 +158,4 @@ const pages = () => {
   );
 };
 
-export default pages;
+export default Pages;

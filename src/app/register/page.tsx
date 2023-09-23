@@ -11,7 +11,7 @@ interface Category {
   name: string;
 }
 
-const page = () => {
+const Page = () => {
   const [teamName, setTeamName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ const page = () => {
           <p className="text-xl lg:text-2xl">CREATE YOUR ACCOUNT</p>
           <div className=" flex flex-col lg:flex-row gap-6 xl:gap-8 ">
             <div className=" flex flex-col w-full gap-2">
-              <p className=" text-sm">Team's Name</p>
+              <p className=" text-sm">Team&apos;s Name</p>
 
               <input
                 type="text"
@@ -261,4 +261,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
