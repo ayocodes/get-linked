@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Register from "./button/Register";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Register from "./button/Register";
 
 const Overview = () => {
   type TimeLeft = {
@@ -38,7 +38,10 @@ const Overview = () => {
   });
 
   return (
-    <div className=" mt-6 flex flex-col items-center pb-2  border-b border-b-[#ffffff25]"  id="Overview">
+    <div
+      className=" mt-6 flex flex-col items-center pb-2  border-b border-b-[#ffffff25]"
+      id="overview"
+    >
       <div className=" flex justify-center lg:justify-end md:text-2xl lg:text-4xl lg:mr-14 w-full">
         <p className=" italic font-bold leading-3">
           Igniting a Revolution in{" "}

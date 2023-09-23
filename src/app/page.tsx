@@ -1,4 +1,7 @@
+"use client";
+
 import FAQ from "@/components/FAQ";
+import Flare from "@/components/Flare";
 import Footbar from "@/components/Footbar";
 import Intro from "@/components/Intro";
 import Judging from "@/components/Judging";
@@ -9,36 +12,51 @@ import Policy from "@/components/Policy";
 import Rewards from "@/components/Rewards";
 import RndG from "@/components/RndG";
 import Timeline from "@/components/Timeline";
-import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useMemo, useRef } from "react";
 
 export default function Home() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
+  useEffect(() => {
+    document.documentElement.classList.add("overflow-x-hidden");
+    document.body.classList.add("overflow-x-hidden");
+
+    // Remove overflow-hidden class when component is unmounted
+    return () => {
+      document.documentElement.classList.remove("overflow-x-hidden");
+      document.body.classList.remove("overflow-x-hidden");
+    };
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <img
-        src="/flare.svg"
-        className=" absolute top-8 z-[-1] opacity-40 w-[700px] "
-        alt=""
-      />
+      <Flare />
 
       <Overview />
       <Intro />
-      <RndG />
-      <img
-        src="/flare.svg"
-        className=" absolute top-[1400px] z-[-1] opacity-40 w-[700px] "
-        alt=""
-      />
-      <img
-        src="/flare.svg"
-        className=" absolute top-[1700px] right-[-400px] z-[-1] opacity-40 w-[700px] "
-        alt=""
-      />
 
+      <RndG />
       <Judging />
+
       <FAQ />
       <Timeline />
-      <Rewards />
+      <motion.div
+        ref={ref}
+        style={{
+          scale: scaleProgess,
+          opacity: opacityProgess,
+        }}
+      >
+        <Rewards />
+      </motion.div>
       <PandS />
       <Policy />
       <Footbar />

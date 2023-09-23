@@ -1,6 +1,16 @@
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const PandS = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
   return (
     <div className=" flex items-center justify-center mt-20 pb-24 flex-col gap-10 lg:gap-16  border-b border-b-[#ffffff25]">
       <div>
@@ -24,7 +34,16 @@ const PandS = () => {
           alt={""}
         />
       </div> */}
-      <img src="/sponsors.svg" className=" w-[80%]" alt="" />
+      <motion.div
+        ref={ref}
+        style={{
+          scale: scaleProgess,
+          opacity: opacityProgess,
+        }}
+        className=" w-full flex items-center justify-center"
+      >
+        <img src="/sponsors.svg" className=" w-[80%]" alt="" />
+      </motion.div>
     </div>
   );
 };

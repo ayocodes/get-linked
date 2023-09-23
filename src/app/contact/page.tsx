@@ -4,14 +4,17 @@ import axios from "axios";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const pages = () => {
   const [firstName, setFirstName] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
+    setLoading(true);
     const formData = {
       email,
       phone_number: phoneNo,
@@ -23,6 +26,7 @@ const pages = () => {
     axios
       .post("https://backend.getlinked.ai/hackathon/contact-form", formData)
       .then((response) => {
+        setLoading(false);
         console.log(response.data);
         toast.success("Request successful!");
       })
@@ -30,7 +34,8 @@ const pages = () => {
         console.log(error.response.data);
         const errorKeys = Object.keys(error.response.data);
         const errorMessage = error.response.data[errorKeys[0]][0];
-        toast.error(errorMessage);
+        toast.error(`${errorKeys}: ${errorMessage}`);
+        setLoading(false);
       });
   };
 
@@ -108,12 +113,22 @@ const pages = () => {
           />
 
           <div className="flex flex-col items-center w-full">
-            <button
-              className="py-4 px-12 bg-primary-button rounded-md"
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="py-4 px-12 bg-primary-button rounded-md flex items-center gap-2"
               onClick={handleSubmit}
             >
               Submit
-            </button>
+              {loading && (
+                <motion.img
+                  className=" w-5"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, type: "spring" }}
+                  src="/arrow.svg"
+                />
+              )}
+            </motion.button>
             <p className=" text-[#D434FE] mt-10 lg:hidden">Share on</p>
             <div className=" flex gap-5 items-center  lg:hidden">
               <a href="https://www.instagram.com/">

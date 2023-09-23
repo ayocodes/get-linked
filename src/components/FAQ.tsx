@@ -1,32 +1,31 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const questions = [
   {
     question: "Can I work on a project I started before the hackathon?",
-    answer: "Dummy answer text",
+    answer: "Yes you can, as long as it is not a commercial product or service.",
   },
   {
     question: "What happens if I need help during the hackathon?",
-    answer: "Dummy answer text",
+    answer: "Ask mentors, volunteers, or other hackers for help.",
   },
   {
     question: "What happens if I don't have an idea for a project?",
-    answer: "Dummy answer text",
+    answer:
+      "Pitch an idea, join a team with an idea, or ask for help brainstorming.",
   },
   {
     question: "Can I join a team or do I have to come with one?",
-    answer: "Dummy answer text",
+    answer:
+      "You can do either. There will be a team formation session at the start of the hackathon.",
   },
   {
-    question: "What happens after the hackathon ends",
-    answer: "Dummy answer text",
-  },
-  {
-    question: "Can I work on a project I started before the hackathon?",
-    answer: "Dummy answer text",
+    question: "What happens after the hackathon ends?",
+    answer: "There will be a judging session and prizes awarded.",
   },
 ];
 
@@ -38,7 +37,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className=" flex flex-col items-center lg:flex-row-reverse  pb-[20px] lg:gap-[40px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-3">
+    <div className=" flex flex-col items-center lg:flex-row-reverse  pb-[20px] lg:gap-[40px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-3" id="FAQs">
       <div className=" relative top-2  w-[294px] h-[382px] overflow-hidden z-[1] md:w-[660px] md:h-[760px]">
         <Image
           style={{
@@ -75,14 +74,30 @@ const FAQ = () => {
               <p className=" text-xs md:text-sm w-[250px] md:w-full">
                 {item.question}
               </p>
-              <img src="/plus.svg" className=" cursor-pointer" alt="" />
+              <motion.img
+                animate={{ rotate: activeIndex === index ? 135 : 0 }}
+                transition={{ ease: "easeOut", duration: 0.2 }}
+                src="/plus.svg"
+                className="cursor-pointer"
+                alt=""
+              />
             </div>
             {activeIndex === index && (
-              <p className=" text-xs md:text-sm w-[250px] md:w-full mb-3">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeIndex === index ? 1 : 0 }}
+                transition={{ ease: "easeOut", duration: 0.3, delay: 0.1 }}
+                className=" text-xs md:text-sm w-[250px] md:w-full mb-3 h-[20px] text-[#D434FE]"
+              >
                 {item.answer}
-              </p>
+              </motion.p>
             )}
-            <hr className=" border-[#D434FE]" />
+            <motion.hr
+              initial={{ y: 0 }}
+              animate={{ y: activeIndex === index ? 17 : 0 }}
+              transition={{ ease: "easeOut", duration: 0.2 }}
+              className="border-[#D434FE]"
+            />{" "}
           </div>
         ))}
       </div>

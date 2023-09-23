@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "@/components/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 interface Category {
   id: number;
@@ -19,6 +20,7 @@ const page = () => {
   const [selectedCategory, setSelectedCategory] = useState("1");
   const [groupSize, setGroupSize] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [buttonClicked, setButtonClicked] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [privacyPolicyAccepted, setPrivacyPolicyAccepted] = useState(false);
 
@@ -39,6 +41,7 @@ const page = () => {
     setSelectedCategory(event.target.value);
 
   const handleSubmit = () => {
+    setButtonClicked(true);
     const formData = {
       email,
       phone_number: phoneNumber,
@@ -50,15 +53,7 @@ const page = () => {
     };
 
     axios
-      .post("https://backend.getlinked.ai/hackathon/registration", {
-        email: "sample@eexample.com",
-        phone_number: "0903322445533",
-        team_name: "Space Explore",
-        group_size: 10,
-        project_topic: "Web server propagation",
-        category: 1,
-        privacy_poclicy_accepted: true,
-      })
+      .post("https://backend.getlinked.ai/hackathon/registration", formData)
       .then((response) => {
         // console.log(response.data.message);
         setIsFormSubmitted(true);
@@ -196,9 +191,11 @@ const page = () => {
                 I agree with the event terms and conditions and privacy policy
               </p>
             </div>
-            <button
-              className="py-4 px-12 bg-primary-button rounded-md w-full disabled:opacity-70 disabled:cursor-not-allowed"
+            <motion.button
+              className="py-4 px-12 bg-primary-button rounded-md w-full disabled:opacity-70 disabled:cursor-not-allowed flex gap-2 items-center  justify-center"
               onClick={() => handleSubmit()}
+              whileTap={{ scale: 0.95 }}
+
               // disabled={
               //   !privacyPolicyAccepted ||
               //   isLoading ||
@@ -210,8 +207,17 @@ const page = () => {
               //   !email
               // }
             >
-              Register Now
-            </button>
+              Register
+              {buttonClicked && (
+                <motion.img
+                  className=" w-5"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, type: "spring" }}
+                  src="/arrow.svg"
+                />
+              )}
+            </motion.button>
           </div>
         </div>
       </div>
@@ -245,7 +251,11 @@ const page = () => {
           </div>
         </div>
       )}
-      <img src="/flare.svg" className=" absolute top-8 z-[-1] opacity-40 w-[700px] " alt="" />
+      <img
+        src="/flare.svg"
+        className=" absolute top-8 z-[-1] opacity-40 w-[700px] "
+        alt=""
+      />
       <ToastContainer />
     </div>
   );

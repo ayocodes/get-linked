@@ -1,12 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Register from "./button/Register";
 
 const navLinks = ["overview", "FAQs", "timeline"];
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
+  const pathname = usePathname();
+  const page = pathname.split("/")[1];
 
   const toggleMenu = () => {
     setMenu(!menu);
@@ -28,7 +32,7 @@ const Navbar = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between md:hidden">
-          <Image
+          <img
             src="/logo.svg"
             alt="Logo"
             width={160}
@@ -36,18 +40,24 @@ const Navbar = () => {
             className={menu ? "hidden" : ""}
           />
           <div className=" flex w-full justify-end">
-            <button onClick={toggleMenu}>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              animate={{ rotate: menu ? 90 : 0 }}
+              transition={{ ease: "easeOut", duration: 0.3 }}
+              onClick={toggleMenu}
+            >
               <Image
                 src={`${menu ? "/close-small.svg" : "/menu-small.svg"}`}
                 alt="Close"
                 width={20}
                 height={20}
               />
-            </button>
+            </motion.button>
           </div>
         </div>
         <div>
-          <Image
+          <img
             src="/logo.svg"
             alt="Logo"
             width={160}
@@ -67,17 +77,22 @@ const Navbar = () => {
               onClick={() => {
                 setMenu(false);
               }}
-              className=" capitalize"
+              className=" capitalize flex flex-col after:content-[''] after:bg-primary-button after:h-0.5 after:w-[0%] after:left-0 after:bottom-0 after:duration-300 hover:after:w-full"
             >
               {link}
             </a>
           ))}
-          <a href="/contact" className=" capitalize ">
+          <a
+            href="/contact"
+            className={` capitalize flex flex-col after:content-[''] after:bg-primary-button after:h-0.5 after:w-[0%] after:left-0 after:bottom-0 after:duration-300 hover:after:w-full ${
+              page == "contact"
+                ? "bg-clip-text text-transparent bg-primary-button"
+                : ""
+            }`}
+          >
             contact
           </a>
-          <a href="/register">
-            <Register />
-          </a>
+          <Register />
         </div>
       </nav>
     </div>

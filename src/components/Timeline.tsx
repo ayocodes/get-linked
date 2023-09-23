@@ -68,19 +68,39 @@ const Timeline = () => {
               </div>
             </div>
 
-            <div className={`lg:flex items-center hidden mb-20 xl:gap-10 ${index % 2 === 0 ? '' : 'flex-row-reverse'} w-full`}>
-              <div className={`flex flex-col ${index % 2 === 0 ? 'items-end' : 'items-start'} w-[460px]`}>
-                <h2 className={`font-bold text-[#D434FE] mb-3 xl:text-xl w-full ${index % 2 === 0 ? 'text-end' : 'text-start'}`}>
+            <div
+              className={`lg:flex items-center hidden mb-20 xl:gap-10 ${
+                index % 2 === 0 ? "" : "flex-row-reverse"
+              } w-full`}
+            >
+              <div
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "items-end" : "items-start"
+                } w-[460px]`}
+              >
+                <h2
+                  className={`font-bold text-[#D434FE] mb-3 xl:text-xl w-full ${
+                    index % 2 === 0 ? "text-end" : "text-start"
+                  }`}
+                >
                   {event.title}
                 </h2>
-                <p className={`leading-6 text-xs xl:text-sm w-[400px] xl:w-[440px] ${index % 2 === 0 ? 'text-end' : 'text-start'}`}>
+                <p
+                  className={`leading-6 text-xs xl:text-sm w-[400px] xl:w-[440px] ${
+                    index % 2 === 0 ? "text-end" : "text-start"
+                  }`}
+                >
                   {event.description}
                 </p>
               </div>
               <div className="flex justify-center items-center w-[90px] h-[90px] text-2xl font-bold rounded-full bg-primary-button border-[20px] border-[#150e28]">
                 {index + 1}
               </div>
-              <div className={`text-[#D434FE] xl:text-xl w-[460px] ${index % 2 === 0 ? 'text-start' : 'text-end'}`}>
+              <div
+                className={`text-[#D434FE] xl:text-xl w-[460px] ${
+                  index % 2 === 0 ? "text-start" : "text-end"
+                }`}
+              >
                 {event.date}
               </div>
               <div className="bg-[#D434FE] h-[250px] z-[-10] absolute hidden lg:block w-1 left-1/2 transform -translate-x-1/2" />
