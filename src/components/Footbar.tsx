@@ -2,7 +2,7 @@ import React from "react";
 
 const Footbar = () => {
   return (
-    <div className=" bg-[#100B20] w-full p-[60px] text-sm leading-7 flex flex-col items-center gap-16">
+    <div className=" bg-[#100B20] w-full p-[60px] text-sm leading-7 flex flex-col items-center gap-16 relative">
       <div className=" lg:flex lg:justify-between lg:px-[80px]  xl:px-[120px] w-full lg:gap-7">
         <div className=" w-[300px] md:w-[450px]">
           <img src="/logo.svg" alt="" className=" w-[90px] flex flex-col" />
@@ -19,21 +19,21 @@ const Footbar = () => {
         </div>
         <div className=" flex flex-col gap-3 mt-8 lg:mt-0">
           <p className=" text-sm text-[#D434FE]">Useful Links</p>
-          <a href="">Overview</a>
-          <a href="">FAQs</a>
-          <a href="">Register</a>
+          <a href="/#overview">Overview</a>
+          <a href="/#FAQs">FAQs</a>
+          <a href="/register">Register</a>
           <div className=" flex gap-5 items-center ">
             <p className=" text-[#D434FE]">Follow us</p>
-            <a href="">
+            <a href="https://www.instagram.com/">
               <img src="/insta.svg" alt="" />
             </a>
-            <a href="">
+            <a href="https://www.twitter.com/">
               <img src="/twitter.svg" alt="" className=" w-5" />
             </a>
-            <a href="">
+            <a href="https://www.facebook.com/">
               <img src="/fb.svg" alt="" className=" w-2.5" />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/">
               <img src="/in.svg" alt="" />
             </a>
           </div>
@@ -55,6 +55,10 @@ const Footbar = () => {
         </div>
       </div>
       <p>All rights reserved. © getlinked Ltd.</p>
+      <img src="/star-g.svg" className=" absolute w-4 bottom-40" alt="" />
+      <img src="/star-p.svg" className=" absolute w-4 right-[200px] bottom-2" alt="" />
+      <img src="/star-w.svg" className=" absolute w-4 left-[200px] top-2" alt="" />
+
     </div>
   );
 };

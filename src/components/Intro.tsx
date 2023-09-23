@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Intro = () => {
   return (
-    <div className=" mt-[30px] flex flex-col items-center lg:flex-row lg:mt-[70px] pb-[70px] lg:gap-[90px] lg:justify-center  border-b border-b-[#ffffff25]">
+    <div className=" mt-[30px] flex flex-col items-center lg:flex-row lg:mt-[70px] pb-[70px] lg:gap-[90px] lg:justify-center  border-b border-b-[#ffffff25] relative">
       <div className=" relative top-2  w-[264px] h-[257px] overflow-hidden z-[1] md:w-[490px] md:h-[477px]">
         <Image
           style={{
@@ -27,6 +27,9 @@ const Intro = () => {
           change the world, that&apos;s what we&apos;re all about!
         </p>
       </div>
+      <img src="/star-p.svg" className=" absolute right-[30px]" alt="" />
+      <img src="/star-p.svg" className=" absolute left-[30px] w-3 top-[100px]" alt="" />
+      <img src="/arrow-d.svg" className=" absolute  bottom-[50px]" alt="" />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Rewards = () => {
   return (
-    <div className=" mt-[30px] flex flex-col items-center lg:grid lg:grid-cols-2 lg:mt-[70px] pb-[70px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-20">
+    <div className=" mt-[30px] flex flex-col items-center lg:grid lg:grid-cols-2 lg:mt-[70px] pb-[70px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-20 relative">
       <div className=" relative top-2  w-[264px] h-[257px] overflow-hidden z-[1] md:w-[490px] md:h-[477px]">
         <Image
           style={{
@@ -22,20 +22,12 @@ const Rewards = () => {
         <p className=" text-center w-[320px] text-[13px] leading-7 md:w-[450px] lg:text-start">
           Highlight of the prizes or rewards for winners and for participants.
         </p>
-        {/* <div className=" relative right-0 w-[390px] h-[279px] overflow-hidden z-[1] md:w-[700px] md:h-[500px]">
-        <Image
-          style={{
-            objectFit: "cover",
-            zIndex: 0,
-          }}
-          fill
-          priority
-          src={"/reward.svg"}
-          alt={""}
-        />
-      </div> */}
+
         <img src="/reward.svg" alt="" className=" w-4/5 lg:w-full" />
       </div>
+      <img src="/star-w.svg" className=" absolute top-6 w-5" alt="" />
+      <img src="/star-g.svg" className=" absolute top-[-40px] left-[250px]" alt="" />
+      <img src="/star-p.svg" className=" absolute bottom-[40px] w-5 left-[350px]" alt="" />
     </div>
   );
 };

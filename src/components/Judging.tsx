@@ -38,7 +38,7 @@ const Judging = () => {
     : judgingCriteria.slice(0, 3);
 
   return (
-    <div className=" mt-[30px] flex flex-col items-center lg:flex-row lg:mt-[70px] pb-[70px] lg:gap-[90px] lg:justify-center  border-b border-b-[#ffffff25]">
+    <div className=" mt-[30px] flex flex-col items-center lg:flex-row lg:mt-[70px] pb-[70px] lg:gap-[90px] lg:justify-center  border-b border-b-[#ffffff25] relative">
       <div className=" relative top-2  w-[332px] h-[275px] overflow-hidden z-[1] md:w-[710px] md:h-[587px]">
         <Image
           style={{
@@ -79,6 +79,9 @@ const Judging = () => {
           {showAll ? "Show Less" : "Read More"}
         </button>
       </div>
+      <img src="/star-p.svg" className=" absolute bottom-5" alt="" />
+      <img src="/star-w.svg" className=" absolute top-40 left-4 w-4" alt="" />
+      <img src="/star-g.svg" className=" absolute top-5 left-20 w-4" alt="" />
     </div>
   );
 };

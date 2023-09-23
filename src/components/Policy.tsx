@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Policy = () => {
   return (
-    <div className=" flex flex-col items-center gap-12 lg:grid lg:grid-cols-2 place-items-center mt-[72px]  pb-[70px] lg:gap-[40px] lg:justify-center lg:px-[100px]">
+    <div className=" flex flex-col items-center gap-12 lg:grid lg:grid-cols-2 place-items-center mt-[72px]  pb-[70px] lg:gap-[40px] lg:justify-center lg:px-[100px] relative">
       <div className=" flex flex-col items-center gap-2 lg:items-start w-full">
         <p className=" font-bold text-xl md:text-3xl">Privacy Policy and</p>
         <p className=" font-bold text-xl text-[#D434FE] md:text-3xl">Terms</p>
@@ -51,6 +51,11 @@ const Policy = () => {
         alt=""
         className=" w-[290px] md:w-[350px] lg:w-[450px]"
       />
+      <img src="/star-g.svg" className=" absolute right-[100px] top-[250px] w-4" alt="" />
+      <img src="/star-p.svg" className=" absolute bottom-[200px] left-6 w-4" alt="" />
+      <img src="/star-p.svg" className=" absolute bottom-[200px] w-4" alt="" />
+      <img src="/star-w.svg" className=" absolute right-[80px] bottom-[250px] w-4" alt="" />
+      <img src="/star-w.svg" className=" absolute left-[100px] top-[200px] w-4" alt="" />
     </div>
   );
 };

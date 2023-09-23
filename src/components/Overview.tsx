@@ -51,7 +51,7 @@ const Overview = () => {
         </p>
       </div>
 
-      <div className=" lg:flex lg:mt-10 items-center">
+      <div className=" lg:flex lg:mt-10 items-center relative">
         <div className=" mt-16 flex flex-col items-center gap-2 lg:ml-10 lg:mt-0 lg:items-start lg:mr-[-80px]">
           <p className=" text-4xl font-bold md:text-6xl">getlinked Tech</p>
           <div className=" flex ">
@@ -111,6 +111,10 @@ const Overview = () => {
             />
           </div>
         </div>
+        <img src="/star-w.svg" className=" absolute top-0 left-0" alt="" />
+        <img src="/star-g.svg" className=" absolute top-[70px] left-[502px]" alt="" />
+        <img src="/star-g.svg" className=" absolute bottom-[80px] left-[350px]" alt="" />
+        <img src="/light.svg" className=" w-5 md:w-[40px] top-[30px] left-[300px] absolute lg:top-[20px] lg:left-[380px]" alt="" />
       </div>
     </div>
   );

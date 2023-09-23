@@ -107,7 +107,10 @@ const Timeline = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div>{" "}
+      <img src="/star-w.svg" className=" relative left-[250px]" alt="" />
+      <img src="/star-g.svg" className=" relative right-[250px] top-[-500px] w-4" alt="" />
+      <img src="/star-p.svg" className=" relative left-[50px] top-[-700px] w-4" alt="" />
     </div>
   );
 };

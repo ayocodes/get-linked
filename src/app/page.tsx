@@ -24,12 +24,12 @@ export default function Home() {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-
-
   return (
     <div>
       <Navbar />
-      {/* <Flare /> */}
+      <div className=" overflow-hidden">
+        <Flare />
+      </div>
 
       <Overview />
       <Intro />

@@ -22,7 +22,6 @@ const Pages = () => {
       message,
     };
 
-    console.log(formData);
     axios
       .post("https://backend.getlinked.ai/hackathon/contact-form", formData)
       .then((response) => {
@@ -42,7 +41,7 @@ const Pages = () => {
   return (
     <div>
       <Navbar />
-      <div className=" flex lg:px-[100px] xl:px-[200px] lg:justify-between justify-center items-center w-full lg:mt-6">
+      <div className=" flex lg:px-[100px] xl:px-[200px] lg:justify-between justify-center items-center w-full lg:mt-6 relative">
         <div className=" flex-col gap-3  hidden lg:flex">
           <p className=" text-3xl text-[#D434FE]">Get in touch</p>
           <p className=" text-sm leading-7">
@@ -61,16 +60,16 @@ const Pages = () => {
           </p>
           <p className=" text-[#D434FE] mt-10">Share on</p>
           <div className=" flex gap-5 items-center">
-            <a href="">
+            <a href="https://www.instagram.com/">
               <img src="/insta.svg" alt="" />
             </a>
-            <a href="">
+            <a href="https://www.twitter.com/">
               <img src="/twitter.svg" alt="" className=" w-5" />
             </a>
-            <a href="">
+            <a href="https://www.facebook.com/">
               <img src="/fb.svg" alt="" className=" w-2.5" />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/">
               <img src="/in.svg" alt="" />
             </a>
           </div>
@@ -147,6 +146,10 @@ const Pages = () => {
             </div>
           </div>
         </div>
+        <img src="/star-g.svg" className=" absolute w-4 bottom-40" alt="" />
+      <img src="/star-p.svg" className=" absolute w-4 right-[200px] bottom-2" alt="" />
+      <img src="/star-w.svg" className=" absolute w-4 left-[200px] top-2" alt="" />
+
       </div>
       <img
         src="/flare.svg"

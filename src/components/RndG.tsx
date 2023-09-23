@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const RndG = () => {
   return (
-    <div className=" flex flex-col items-center lg:flex-row-reverse  pb-[20px] lg:gap-[40px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-3">
+    <div className=" flex flex-col items-center lg:flex-row-reverse  pb-[20px] lg:gap-[40px] lg:justify-center  border-b border-b-[#ffffff25] lg:px-3 relative">
       <div className=" relative top-2  w-[294px] h-[382px] overflow-hidden z-[1] md:w-[664px] md:h-[664px]">
         <Image
           style={{
@@ -30,6 +30,8 @@ const RndG = () => {
           change the world, that&apos;s what we&apos;re all about!
         </p>
       </div>
+      <img src="/star-g.svg" className=" absolute" alt="" />
+      <img src="/star-w.svg" className=" absolute top-[100px] left-9 w-4" alt="" />
     </div>
   );
 };
