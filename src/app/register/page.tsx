@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Navbar from "@/components/Navbar";
+import axios from "axios";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { motion } from "framer-motion";
 
 interface Category {
   id: number;
@@ -195,17 +195,16 @@ const Page = () => {
               className="py-4 px-12 bg-primary-button rounded-md w-full disabled:opacity-70 disabled:cursor-not-allowed flex gap-2 items-center  justify-center"
               onClick={() => handleSubmit()}
               whileTap={{ scale: 0.95 }}
-
-              // disabled={
-              //   !privacyPolicyAccepted ||
-              //   isLoading ||
-              //   !phoneNumber ||
-              //   !teamName ||
-              //   !groupSize ||
-              //   !projectTopic ||
-              //   !selectedCategory ||
-              //   !email
-              // }
+              disabled={
+                !privacyPolicyAccepted ||
+                isLoading ||
+                !phoneNumber ||
+                !teamName ||
+                !groupSize ||
+                !projectTopic ||
+                !selectedCategory ||
+                !email
+              }
             >
               Register
               {buttonClicked && (

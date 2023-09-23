@@ -13,7 +13,7 @@ import Rewards from "@/components/Rewards";
 import RndG from "@/components/RndG";
 import Timeline from "@/components/Timeline";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useMemo, useRef } from "react";
+import { useRef } from "react";
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,16 +24,7 @@ export default function Home() {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-  useEffect(() => {
-    document.documentElement.classList.add("overflow-x-hidden");
-    document.body.classList.add("overflow-x-hidden");
 
-    // Remove overflow-hidden class when component is unmounted
-    return () => {
-      document.documentElement.classList.remove("overflow-x-hidden");
-      document.body.classList.remove("overflow-x-hidden");
-    };
-  }, []);
 
   return (
     <div>

@@ -1,18 +1,14 @@
-import React, { useMemo } from "react";
+import { useEffect } from "react";
 
 const Flare = () => {
-  const positions = useMemo(() => {
-    const generatedPositions = [];
+  useEffect(() => {
+    document.body.classList.add("overflow-x-hidden");
 
-    for (let i = 0; i < 10; i++) {
-      const top = Math.floor(Math.random() * 7000);
-      const left = Math.floor(Math.random() * 500) - 250;
-
-      generatedPositions.push({ top, left });
-    }
-
-    return generatedPositions;
+    return () => {
+      document.body.classList.remove("overflow-x-hidden");
+    };
   }, []);
+
   return (
     <div>
       <img
@@ -72,7 +68,6 @@ const Flare = () => {
         className="absolute top-[6926px] left-[-202px] z-[-1] opacity-40 w-[700px]"
         alt=""
       />
-
     </div>
   );
 };

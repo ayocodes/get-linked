@@ -1,10 +1,10 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { motion } from "framer-motion";
 
 const Pages = () => {
   const [firstName, setFirstName] = useState("");
@@ -115,8 +115,9 @@ const Pages = () => {
           <div className="flex flex-col items-center w-full">
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="py-4 px-12 bg-primary-button rounded-md flex items-center gap-2"
+              className="py-4 px-12 bg-primary-button rounded-md flex items-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
               onClick={handleSubmit}
+              disabled={!email || !phoneNo || !firstName || !message}
             >
               Submit
               {loading && (
